@@ -1,7 +1,6 @@
 package uz.flowerry.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import uz.flowerry.R;
 import uz.flowerry.model.DiscountedProducts;
-import uz.flowerry.ui.fragment.MainActivity;
 
 public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedProductAdapter.DiscountedProductViewHolder> {
     Context context;
@@ -37,7 +35,7 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
     @Override
     public void onBindViewHolder(@NonNull DiscountedProductViewHolder holder, int position) {
         if (holder instanceof DiscountedProductViewHolder) {
-            holder.discountedImageView.setImageResource(discountedProductsList.get(position).getImageUrl())s;
+            holder.discountedImageView.setImageResource(discountedProductsList.get(position).getImageUrl());
         }
     }
 

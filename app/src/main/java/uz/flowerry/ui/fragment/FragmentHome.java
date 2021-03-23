@@ -1,16 +1,15 @@
 package uz.flowerry.ui.fragment;
 
-import android.app.AppComponentFactory;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,36 +18,42 @@ import uz.flowerry.R;
 import uz.flowerry.adapter.DiscountedProductAdapter;
 import uz.flowerry.model.DiscountedProducts;
 
-public class MainActivity extends AppCompatActivity {
+public class FragmentHome extends Fragment {
+
 
     RecyclerView discountRecyclerView;
     DiscountedProductAdapter discountedProductAdapter;
     List<DiscountedProducts> discountedProductsList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    }
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        discountRecyclerView = findViewById(R.id.discountedRecycler);
+        discountRecyclerView = view.findViewById(R.id.discountedRecycler);
 
         discountedProductsList = new ArrayList<>();
         discountedProductsList.add(new DiscountedProducts(1, R.drawable.flower_2));
         discountedProductsList.add(new DiscountedProducts(2, R.drawable.flower_1));
         discountedProductsList.add(new DiscountedProducts(3, R.drawable.flower_3));
 
-        setDiscountedRecycler( discountedProductsList);
-    }
-    private void setDiscountedRecycler(List<DiscountedProducts> dataList) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        discountRecyclerView.setLayoutManager(layoutManager);
-        discountedProductAdapter = new DiscountedProductAdapter(this ,dataList);
-        discountRecyclerView.setAdapter(discountedProductAdapter);
+        setDiscountedRecycler(discountedProductsList);
     }
 
+    private void setDiscountedRecycler(List<DiscountedProducts> dataList) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        discountRecyclerView.setLayoutManager(layoutManager);
+        discountedProductAdapter = new DiscountedProductAdapter(getContext(), dataList);
+        discountRecyclerView.setAdapter(discountedProductAdapter);
+    }
 }
