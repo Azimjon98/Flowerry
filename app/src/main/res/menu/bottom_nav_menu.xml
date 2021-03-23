@@ -4,17 +4,17 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/icon_home"
-        android:title="home" />
+        android:title="Home" />
     <item
         android:id="@+id/settingFragment"
         android:icon="@drawable/icon_setting"
-        android:title="setting" />
+        android:title="Settings" />
     <item
         android:id="@+id/messageFragment"
         android:icon="@drawable/icon_message"
-        android:title="sms" />
+        android:title="Message" />
     <item
-        android:id="@+id/accountFragment2"
+        android:id="@+id/accountFragment"
         android:icon="@drawable/icon_account"
-        android:title="myaccount" />
+        android:title="My Account" />
 </menu>

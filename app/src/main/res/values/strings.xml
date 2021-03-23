@@ -2,4 +2,7 @@
     <string name="app_name">Flowerry</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="heavinly_pink_rose_hand_tied">heavinly Pink Rose Hand-tied</string>
+    <string name="rose_hand_tied">rose_hand_tied</string>
+    <string name="add_to_card">add to card</string>
 </resources>
