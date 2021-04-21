@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,9 +35,8 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
 
     @Override
     public void onBindViewHolder(@NonNull DiscountedProductViewHolder holder, int position) {
-        if (holder instanceof DiscountedProductViewHolder) {
-            holder.discountedImageView.setImageResource(discountedProductsList.get(position).getImageUrl());
-        }
+        holder.discountedImageView.setImageResource(discountedProductsList.get(position).getImageUrl());
+        holder.textView.setText((CharSequence) discountedProductsList.get(position).getText());
     }
 
     @Override
@@ -46,12 +46,13 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
     }
 
     public class DiscountedProductViewHolder extends RecyclerView.ViewHolder{
-
+        TextView textView;
         ImageView discountedImageView;
 
         public DiscountedProductViewHolder(@NonNull View itemView) {
             super(itemView);
             discountedImageView = itemView.findViewById(R.id.discountImage);
+            textView  = itemView.findViewById(R.id.discountedText);
         }
     }
 }

@@ -35,6 +35,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -53,6 +54,9 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.29.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.29.1'
 
+
+    // shov more
+    implementation 'com.ms-square:expandableTextView:0.1.4'
 
     //FOR ROOM******************************
     def room_version = "2.3.0-beta02"
@@ -131,4 +135,18 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    // slider image
+
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+
+
+
 }

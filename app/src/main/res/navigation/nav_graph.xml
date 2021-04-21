@@ -9,7 +9,17 @@
         android:id="@+id/homeFragment"
         android:name="uz.flowerry.ui.fragment.FragmentHome"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_recomendedClickFragment2"
+            app:destination="@id/recomendedClickFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment2"
+            app:destination="@id/cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="uz.flowerry.ui.fragment.FragmentSettings"
@@ -25,4 +35,18 @@
         android:name="uz.flowerry.ui.fragment.FragmentAccount"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/recomendedClickFragment"
+        android:name="uz.flowerry.ui.fragment.RecomendedClickFragment"
+        android:label="fragment_recomended_click"
+        tools:layout="@layout/fragment_recomended_click" >
+        <action
+            android:id="@+id/action_recomendedClickFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="uz.flowerry.ui.fragment.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

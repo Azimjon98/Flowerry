@@ -5,4 +5,9 @@
     <string name="heavinly_pink_rose_hand_tied">heavinly Pink Rose Hand-tied</string>
     <string name="rose_hand_tied">rose_hand_tied</string>
     <string name="add_to_card">add to card</string>
+    <string name="expandableText">Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</string>
 </resources>

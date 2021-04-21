@@ -1,13 +1,18 @@
 package uz.flowerry.model;
 
+import android.widget.TextView;
+
 public class DiscountedProducts {
 
-   private Integer id;
-   private int ImageUrl;
 
-    public DiscountedProducts(Integer id, int imageUrl) {
+     String text;
+   Integer id;
+   int ImageUrl;
+
+    public DiscountedProducts(Integer id, int imageUrl, String title) {
         this.id = id;
-        ImageUrl = ImageUrl;
+        this.ImageUrl = imageUrl;
+        this.text = title;
     }
 
     public Integer getId() {
@@ -24,5 +29,13 @@ public class DiscountedProducts {
 
     public void setImageUrl(int imageUrl) {
         ImageUrl = imageUrl;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }
