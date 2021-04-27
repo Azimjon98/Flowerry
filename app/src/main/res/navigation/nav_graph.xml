@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_cartFragment2"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recomendedClickFragment"
+            app:destination="@id/recomendedClickFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -48,5 +51,29 @@
         android:id="@+id/cartFragment"
         android:name="uz.flowerry.ui.fragment.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart_recycler" />
+    <fragment
+        android:id="@+id/newsClickFragment2"
+        android:name="uz.flowerry.ui.fragment.NewsClickFragment"
+        android:label="NewsClickFragment" >
+        <action
+            android:id="@+id/News_Fragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdClickFragment"
+        android:name="uz.flowerry.ui.fragment.ThirdClickFragment"
+        android:label="ThirdClickFragment" >
+        <action
+            android:id="@+id/action_thirdClickFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/highFirstFragment"
+        android:name="uz.flowerry.ui.fragment.HighFirstFragment"
+        android:label="HighFirstFragment" >
+        <action
+            android:id="@+id/action_highFirstFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

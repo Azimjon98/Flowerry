@@ -36,6 +36,7 @@
            >
 
             <ImageView
+                android:id="@+id/favBtn"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:src="@drawable/ic_favorite"
@@ -57,15 +58,31 @@
         android:textStyle="normal"
         android:textColor="#000000" />
 
-        <TextView
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="88dp"
+            app:cardBackgroundColor="#F5F5F5"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="3dp"
                 android:id="@+id/recomendet_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="$450"
-                android:textSize="20dp"
-                android:textColor="@color/cardview_dark_background"
+                android:text="150000"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="#003153"
                 />
+        </androidx.cardview.widget.CardView>
+
 
 
 

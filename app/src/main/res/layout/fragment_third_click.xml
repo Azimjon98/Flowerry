@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <com.denzcoskun.imageslider.ImageSlider
-            android:id="@+id/image_slider"
+            android:id="@+id/image_slider_third"
             android:layout_width="match_parent"
             android:layout_height="380dp"
             android:src="@drawable/flower_1"
@@ -51,7 +51,7 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
-                android:id="@+id/recomended_go_back"
+                android:id="@+id/recomended_go_back_third"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -128,7 +128,7 @@
             app:cardCornerRadius="20dp">
 
             <LinearLayout
-                android:id="@+id/expandable_more"
+                android:id="@+id/expandable_more_third"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#F0F0F0"
@@ -151,7 +151,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/expandable_text"
+                        android:id="@+id/expandable_text_third"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
@@ -164,7 +164,7 @@
                         android:textSize="15dp" />
 
                     <Button
-                        android:id="@+id/btnmore"
+                        android:id="@+id/btnmore_third"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_gravity="right"
@@ -182,7 +182,7 @@
             app:cardCornerRadius="10dp">
 
             <Button
-                android:id="@+id/btn_add_cart"
+                android:id="@+id/btn_add_cart_third"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"

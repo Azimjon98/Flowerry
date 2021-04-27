@@ -1,6 +1,7 @@
 package uz.flowerry.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -37,6 +39,15 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
     public void onBindViewHolder(@NonNull DiscountedProductViewHolder holder, int position) {
         holder.discountedImageView.setImageResource(discountedProductsList.get(position).getImageUrl());
         holder.textView.setText((CharSequence) discountedProductsList.get(position).getText());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("HighFirst", discountedProductsList.get(position).getImageUrl());
+                Navigation.findNavController(v).navigate(R.id.highFirstFragment,bundle);
+            }
+        });
     }
 
     @Override

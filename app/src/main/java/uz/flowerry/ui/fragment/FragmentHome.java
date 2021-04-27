@@ -1,20 +1,11 @@
 package uz.flowerry.ui.fragment;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,32 +21,39 @@ import java.util.List;
 
 import uz.flowerry.R;
 import uz.flowerry.adapter.DiscountedProductAdapter;
-import uz.flowerry.adapter.NewsImageAdapter;
+import uz.flowerry.adapter.FourthAdapter;
+import uz.flowerry.adapter.NewsImagesAdapter;
 import uz.flowerry.adapter.RecomendedAdapter;
+import uz.flowerry.adapter.ThirdAdapter;
 import uz.flowerry.model.DiscountedProducts;
+import uz.flowerry.model.FourthProducts;
 import uz.flowerry.model.NewsImagesproduct;
 import uz.flowerry.model.RecomendedProdects;
+import uz.flowerry.model.ThirdProducts;
 
 public class  FragmentHome extends Fragment {
 
 
-    RecyclerView discountRecyclerView, newsRecyclerView, recommended_Recycler;
+    RecyclerView discountRecyclerView, newsRecyclerView, recommended_Recycler, thirdRecyclerView ,fourthRecyclerView;
+
     DiscountedProductAdapter discountedProductAdapter;
     List<DiscountedProducts> discountedProductsList;
 
-    NewsImageAdapter  newsImageAdapter;
+    NewsImagesAdapter newsImageAdapter;
     List<NewsImagesproduct> newsImagesList;
 
     RecomendedAdapter recomendedAdapter;
     List<RecomendedProdects> recomendedProdectsList;
 
-    ImageView imageView;
-    ImageView buttonSheets;
+    ThirdAdapter thirdAdapter;
+    List<ThirdProducts> thirdProducts;
 
-    ImageView imagebacket;
+    FourthAdapter fourthAdapter;
+    List<FourthProducts> fourthProducts;
 
 
 
+    ImageView imageView, buttonSheets, imagebacket;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +72,8 @@ public class  FragmentHome extends Fragment {
 
         discountRecyclerView = view.findViewById(R.id.discountedRecycler);
         newsRecyclerView = view.findViewById(R.id.newsRecycler);
+        thirdRecyclerView = view.findViewById(R.id.thirdRecycler);
+        fourthRecyclerView = view.findViewById(R.id.fourthRecycler);
         recommended_Recycler = view.findViewById(R.id.recommended_recycler);
         imageView = view.findViewById(R.id.icon_share);
         buttonSheets = view.findViewById(R.id.shop_name);
@@ -130,34 +130,66 @@ public class  FragmentHome extends Fragment {
         discountedProductsList.add(new DiscountedProducts(9, R.drawable.flower_3, "accesories"));
         setDiscountedRecycler(discountedProductsList);
 
-        newsImagesList = new ArrayList<>();
-        newsImagesList.add(new NewsImagesproduct(R.drawable.flower_1));
-        newsImagesList.add(new NewsImagesproduct(R.drawable.flower_hd_4));
-        newsImagesList.add(new NewsImagesproduct(R.drawable.flowes_hd_3));
-        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2));
-        setNewsRecycler(newsImagesList);
 
         recomendedProdectsList = new ArrayList<>();
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flover_hd_1, "Birthday Gift",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flofers_hd_2, "Birthday Gift",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flowes_hd_3, "Birthday Gift",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_hd_4, "Birthday Gift",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_2, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_1, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_6, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_5, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_4, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_3, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_2, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_1, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_6, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_5, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_4, "ehhgfuewofyg",450));
-       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_4, "ehhgfuewofyg",450));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_4, "Birthday Gift",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_3, "Birthday Gift",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flowes_hd_3, "Birthday Gift",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_hd_4, "Birthday Gift",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_2, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_1, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_6, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_5, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_4, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_3, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_2, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_1, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_6, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_5, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_4, "ehhgfuewofyg",150000));
+       recomendedProdectsList.add(new RecomendedProdects(R.drawable.flower_4, "ehhgfuewofyg",150000));
 
          setRecommendedRecycler(recomendedProdectsList);
 
+        newsImagesList = new ArrayList<>();
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flower_1, "ipfbpyp", 44658777));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flower_hd_4, "gweyig", 836));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flowes_hd_3, "yoiugyu", 7906));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2,"hjhvl", 6897));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2,"hjhvl", 6897));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2,"hjhvl", 6897));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2,"hjhvl", 6897));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2,"hjhvl", 6897));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2,"hjhvl", 6897));
+        newsImagesList.add(new NewsImagesproduct(R.drawable.flofers_hd_2,"hjhvl", 689));
+        setNewsRecycler(newsImagesList);
+
+        thirdProducts = new ArrayList<>();
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_6, "boquet of 5 white roses", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_5, "boquet of 5 white roses", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_4, "boquet of 5 white roses", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_3, "boquet of 5 white roses", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_2, "boquet of 5 white roses", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_6, "boquet of 5 white roses", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_6, "boquet of 5 white roses", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_6, "flower", 34000));
+        thirdProducts.add(new ThirdProducts(R.drawable.flower_6, "flower", 34000));
+        setThirdRecycler(thirdProducts);
+
+        fourthProducts = new ArrayList<>();
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        fourthProducts.add(new FourthProducts(R.drawable.flower_hd_4,"chikkade", 43000));
+        setFourthRecycler(fourthProducts);
+
          final NavController navController = Navigation.findNavController(view);
+
 
     }
 
@@ -168,11 +200,12 @@ public class  FragmentHome extends Fragment {
         discountRecyclerView.setAdapter(discountedProductAdapter);
     }
     private void setNewsRecycler(List<NewsImagesproduct> newsImagesList) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         newsRecyclerView.setLayoutManager(layoutManager);
-        newsImageAdapter = new NewsImageAdapter(getContext(), newsImagesList);
+        newsImageAdapter = new NewsImagesAdapter(getContext(), newsImagesList);
         newsRecyclerView.setAdapter(newsImageAdapter);
     }
+
     private  void setRecommendedRecycler(List<RecomendedProdects> recomendedProdectsList){
         RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recommended_Recycler.setLayoutManager(layoutManager);
@@ -181,6 +214,19 @@ public class  FragmentHome extends Fragment {
 
     }
 
+    private void setThirdRecycler(List<ThirdProducts> thirdProductsList){
+        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+        thirdRecyclerView.setLayoutManager(layoutManager);
+        thirdAdapter = new ThirdAdapter(getContext(), thirdProductsList);
+        thirdRecyclerView.setAdapter(thirdAdapter);
+    }
+
+    private void  setFourthRecycler(List<FourthProducts>fourthProductsList){
+        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
+        fourthRecyclerView.setLayoutManager(layoutManager);
+        fourthAdapter = new FourthAdapter(getContext(), fourthProductsList);
+        fourthRecyclerView.setAdapter(fourthAdapter);
+    }
 
     }
 

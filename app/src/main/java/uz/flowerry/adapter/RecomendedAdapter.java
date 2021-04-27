@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,8 @@ public class RecomendedAdapter extends RecyclerView.Adapter<RecomendedAdapter.Re
     Context context;
     List<RecomendedProdects> recomendedProdectsList;
 
+
+
     public RecomendedAdapter(Context context, List<RecomendedProdects> recomendedProdectsList) {
         this.context = context;
         this.recomendedProdectsList = recomendedProdectsList;
@@ -36,7 +39,7 @@ public class RecomendedAdapter extends RecyclerView.Adapter<RecomendedAdapter.Re
     @Override
     public void onBindViewHolder(@NonNull RecomendedViewHolder holder, int position) {
         holder.recomendedText1.setText(recomendedProdectsList.get(position).getRecomendText());
-        holder.recomendedText2.setText(recomendedProdectsList.get(position).getRecomendTextSum());
+        holder.recomendedText2.setText(String.valueOf(recomendedProdectsList.get(position).getRecomendTextSum()));
         holder.recomendedImage.setImageResource(recomendedProdectsList.get(position).getRecomendImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -59,12 +62,16 @@ public class RecomendedAdapter extends RecyclerView.Adapter<RecomendedAdapter.Re
           TextView recomendedText1 , recomendedText2;
           ImageView recomendedImage;
 
+
         public RecomendedViewHolder(@NonNull View itemView) {
             super(itemView);
 
             recomendedImage = itemView.findViewById(R.id.recomendet_image);
             recomendedText1 = itemView.findViewById(R.id.recomendet_text1);
             recomendedText2 = itemView.findViewById(R.id.recomendet_text2);
+
+
+
 
 
         }

@@ -25,12 +25,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uz.flowerry.R;
+import uz.flowerry.room.FlowerDatabase;
+import uz.flowerry.room.entity.FlowerEntity;
 
 
 public class RecomendedClickFragment extends Fragment {
 
     TextView expText;
     Button btnAddCart;
+    ImageView recomendedGoBack;
 
 
 
@@ -55,6 +58,14 @@ public class RecomendedClickFragment extends Fragment {
         int a = getArguments().getInt("image");
         expText = view.findViewById(R.id.expandable_text);
         btnAddCart= view.findViewById(R.id.btn_add_cart);
+        recomendedGoBack = view.findViewById(R.id.recomended_go_back);
+
+        recomendedGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
 
 
 
@@ -62,7 +73,9 @@ public class RecomendedClickFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("cart",0);
+                bundle.putInt("cart",a);
+                addToDatabase();
+
                 Navigation.findNavController(v).navigate(R.id.cartFragment,bundle);
             }
         });
@@ -86,6 +99,17 @@ public class RecomendedClickFragment extends Fragment {
             expText.setMaxLines(100);
             expText.setMaxLines(5);
         });
+
+    }
+
+    public void addToDatabase(){
+
+        new Thread(() -> {
+            FlowerEntity s = new FlowerEntity();
+//            s.setTitle();
+
+            FlowerDatabase.getDatabase(getContext()).getFlowerDao().insert(s);
+        }).start();
 
     }
 }
